@@ -1,0 +1,43 @@
+//-pug file which gives the user the option too add a new vendor
+doctype html
+html(lang='en')
+    head
+        title Add a vendor
+        meta(charset='UTF-8')
+        link(rel='stylesheet', href='styles.css')
+    body 
+        script(src='/addvendor.js')
+        include  ../partials/header
+        #Title 
+            h1 ADD A VENDOR
+        #main 
+            //-asks user to enter name,delivery_fee and minimum order
+            p Enter Name:
+            input(
+                type='text'
+                id='name'
+                size='50'
+            )
+        
+            p Enter delivery fee:
+            input(
+                type='text'
+                id='fee'
+                size='50'
+            )
+       
+            p Enter minimum order:
+            input(
+                type='text'
+                id='min'
+                size='50'
+            )
+        //-submit button which will add the vendor to the server
+        #submit 
+            button(
+                type='button'
+                id='submit'
+                value ='submit'
+                onclick= 'submit()'
+            ) submit 
+        

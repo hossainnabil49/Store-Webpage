@@ -1,0 +1,90 @@
+//-
+    pug file for orderform
+doctype html
+html(lang='en')
+  head
+    title Office Supplies Order Form
+    |
+    meta(charset='UTF-8')
+    | 
+    link(rel='stylesheet', href='/styles.css')
+  include  ../partials/header
+  
+  
+  | 
+  body(onload='init()')
+    
+  
+  
+    .info 
+      //-set of textboxes that have the currentVendor name,minorder,deliv fee already set in them, but can be changed
+      p 
+      |Vendor Name:
+      input(type="text" id="name" value=currentVendor.name) 
+      p 
+      |Minimum Order: 
+      input(type="text" id="min" value=currentVendor.min_order) 
+      p 
+      |Delivery Fee: 
+      input(type="text" id="fee" value=currentVendor.delivery_fee) 
+    
+    .main
+      .left.column.left
+        //- Lists the categories of selected vendor 
+        h2 CATEGORIES 
+        each val,key in currentVendor.supplies 
+          
+          p #{key}
+        br
+        br
+        //-generates a select menu which contains each category of selected vendor
+        select(id="category")
+          each val,key in currentVendor.supplies 
+            option(value=key id=key) #{key}
+        //-Series of textboxes which asks the user to type in the following: new item name,price,stock and description
+        p 
+        |Item name: 
+        input(type="text" id="itmName" value="Default")
+        p 
+        |Item price: 
+        input(type="text" id="itmPrice" value=0.00)
+        p 
+        |Item stock: 
+        input(type="text" id="itmStock" value=0)
+        p 
+        |Item Description: 
+        input(type='text' id="itmDesc" value="Default")
+        br
+        br
+        input(type="button" id="addItem" value="Add Item" onclick= 'addItem()')
+
+      //-generates the supply list of the webpage
+      #middle.column.middle
+        each val,key in currentVendor.supplies 
+          h3 #{key}
+          each val2,key2 in val 
+            p #{val2.name} ( $#{val2.price}, stock:#{val2.stock}, ID:#{key2})
+            | #{val2.description}
+            
+            
+              
+           
+
+      .right.column.right  
+        //-gives user the option to add a new category, using a textbox and a add category button
+        h2 Add New Category to Vendor: 
+        
+        
+        h4 New Category Name:
+        input(type='text' id="categoryName" value="Default")
+        br
+        button(type="button" id="addCategory" value="Add Category" onclick='addCategory()') Add Category
+        br
+        br
+        br
+        //-save button which saves the new changes to the server
+        button(type="button" id="save" value="save" onclick='submit()') save 
+      script(src="/client.js")
+
+    
+

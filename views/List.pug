@@ -1,0 +1,16 @@
+//-Pug file which lists all the vendors
+doctype html
+html(lang='en')
+    head
+        title List of vendors 
+        meta(charset='UTF-8')
+        link(rel='stylesheet', href='styles.css')
+
+    body 
+        include  ../partials/header
+        #Title 
+            h1 VENDOR LIST
+        #Cards 
+            each key in vendors
+                br
+                a(href="/vendors/"+key.id) #{key.name}

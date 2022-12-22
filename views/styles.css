@@ -1,0 +1,65 @@
+body {
+    padding-left: 10px;
+    background-color: bisque ;
+}
+
+#category {
+    
+    width: 140px;
+    padding: 15px;
+    margin: 10px 0;
+    
+    border-radius: 40px;
+    cursor: pointer; 
+    background-color: lightsalmon;
+}
+
+.column {
+    float: left;
+}
+
+.left {
+    width: 25%;
+    
+}
+
+.middle {
+    width: 40%;
+}
+
+.right {
+    width: 29%;
+    background-color:peachpuff;
+    box-shadow: 5px 5px;
+    min-height: 500px;
+    min-width: 500px;
+}
+
+button {
+    width: 140px;
+    padding: 15px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer; 
+    background-color: papayawhip;
+ }
+ #addItem{
+    width: 140px;
+    padding: 15px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer; 
+    background-color: papayawhip;
+ }
+ input[type=text]{
+    width: 100px;
+    padding: 5px;
+    margin: 10px 0;
+    
+    border-radius: 20px;
+    cursor: pointer; 
+    background-color: lightsalmon;
+ }
+ 
